@@ -1,5 +1,4 @@
 const yaml = require('js-yaml');
-// test github action
 // personal clash rule
 const WHITE_LIST_RULES = [
   "RULE-SET,applications,DIRECT",
