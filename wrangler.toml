@@ -3,3 +3,5 @@ name = "customize-network-rule"
 # router
 routes = ["net.guliguligu.com/*"]
 compatibility_date = "2022-04-24"
+# entry point
+main = "index.js"
