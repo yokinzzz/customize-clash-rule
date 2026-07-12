@@ -89,10 +89,13 @@ export default {
       // network_url is the original clash config url
       const upstreamResponse = await fetch(env.network_url, {
         method: 'GET',
-        headers: { 'User-Agent': 'Clash-Worker/1.0' } // 最好加上 UA
+        headers: { 'User-Agent': 'Clash-Worker/1.0', 
+          'Host': '127.0.0.1',
+          'Accept': '*/*'
+        } // 最好加上 UA
       });
       if (!upstreamResponse.ok) {
-        return new Response("Failed to fetch original clash config", { status: 502 });
+        return new Response("Failed to fetch original clash config, fail reason:" + upstreamResponse.status + " " + upstreamResponse.statusText, { status: 502 });
       }
       const upstreamText = await upstreamResponse.text();
       const config = yaml.load(upstreamText);
